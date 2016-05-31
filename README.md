@@ -11,10 +11,10 @@ Build on top of elm-flatris.
 
 ## Instructions to run
 
-1. Install elm [elm-lang.org/install](http://elm-lang.org/install)
+1. Install elm [elm-lang.org/install][install]
 2. Clone this repo and `cd` into it
 3. Run `elm reactor`
-4. Open [localhost:8000/src/Main.elm](http://localhost:8000/src/Main.elm) in the browser
+4. Open [localhost:8000/src/Main.elm][local] in the browser
 
 ## Touch support (tested on iOS)
 
@@ -23,3 +23,6 @@ For a touch support compile to html `elm make src/Main.elm --output index.html` 
 ```html
 <meta name="viewport" content="width=480,user-scalable=0">
 ```
+
+[install]: http://elm-lang.org/install
+[local]: http://localhost:8000/src/Main.elm
