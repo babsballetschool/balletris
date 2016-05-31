@@ -1,9 +1,10 @@
 {
-    "version": "2.0.0",
-    "summary": "A Flatris clone in Elm language",
-    "repository": "https://github.com/w0rm/elm-flatris.git",
+    "version": "1.0.0",
+    "summary": "A ballet-themed tetris",
+    "repository": "https://github.com/user/project.git",
     "license": "MIT",
     "source-directories": [
+        ".",
         "src"
     ],
     "exposed-modules": [],

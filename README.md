@@ -18,7 +18,7 @@ Build on top of elm-flatris.
 
 ## Touch support (tested on iOS)
 
-For a touch support compile to html `elm make src/Main.elm --output elm-flatris.html` and add the following meta:
+For a touch support compile to html `elm make src/Main.elm --output index.html` and add the following meta:
 
 ```html
 <meta name="viewport" content="width=480,user-scalable=0">
