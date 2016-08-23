@@ -142,7 +142,7 @@ renderPanel {score, lines, next, state} =
     , "top" => "0"
     ]
   ]
-  [ renderTitle "Flatris"
+  [ renderTitle "Balletris"
   , renderLabel "Score"
   , renderCount score
   , renderLabel "Lines Cleared"
@@ -241,15 +241,12 @@ renderInfo state =
     ]
   ] [
     Markdown.toHtml [] """
-elm-flatris is a [**Flatris**](https://github.com/skidding/flatris)
-clone coded in [**Elm**](http://elm-lang.org/) language.
-
 Inspired by the classic [**Tetris**](http://en.wikipedia.org/wiki/Tetris)
 game, the game can be played with a keyboard using the arrow keys,
 and on mobile devices using the buttons below.
 
-elm-flatris is open source on
-[**GitHub**](https://github.com/w0rm/elm-flatris).
+Balletris is open source on
+[**GitHub**](https://github.com/dvberkel/balletris).
 """
   ]
 

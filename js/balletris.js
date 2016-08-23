@@ -13352,7 +13352,7 @@ var _user$project$View$renderPanel = function (_p12) {
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_user$project$View$renderTitle('Flatris'),
+				_user$project$View$renderTitle('Balletris'),
 				_user$project$View$renderLabel('Score'),
 				_user$project$View$renderCount(_p13.score),
 				_user$project$View$renderLabel('Lines Cleared'),
@@ -13512,7 +13512,7 @@ var _user$project$View$renderInfo = function (state) {
 				_evancz$elm_markdown$Markdown$toHtml,
 				_elm_lang$core$Native_List.fromArray(
 					[]),
-				'\nelm-flatris is a [**Flatris**](https://github.com/skidding/flatris)\nclone coded in [**Elm**](http://elm-lang.org/) language.\n\nInspired by the classic [**Tetris**](http://en.wikipedia.org/wiki/Tetris)\ngame, the game can be played with a keyboard using the arrow keys,\nand on mobile devices using the buttons below.\n\nelm-flatris is open source on\n[**GitHub**](https://github.com/w0rm/elm-flatris).\n')
+				'\nInspired by the classic [**Tetris**](http://en.wikipedia.org/wiki/Tetris)\ngame, the game can be played with a keyboard using the arrow keys,\nand on mobile devices using the buttons below.\n\nBalletris is open source on\n[**GitHub**](https://github.com/dvberkel/balletris).\n')
 			]));
 };
 var _user$project$View$view = function (model) {
