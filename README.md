@@ -16,10 +16,20 @@ Build on top of elm-flatris.
 3. Run `elm reactor`
 4. Open [localhost:8000/src/Main.elm][local] in the browser
 
+## Instructions to make
+
+1. Execute `elm make src/Main.elm --output js/balletris.js`
+2. Create an `index.html` with includes the following scripts
+
+```html
+<script src="js/balletris.js"></script>
+<script>Elm.Main.fullscreen();</script>
+```
+
 ## Touch support (tested on iOS)
 
-For a touch support compile to html `elm make src/Main.elm --output index.html` and add the following meta:
-
+Add the following meta into `index.html`:
+    
 ```html
 <meta name="viewport" content="width=480,user-scalable=0">
 ```
