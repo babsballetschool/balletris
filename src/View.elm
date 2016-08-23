@@ -28,7 +28,7 @@ onTouchEnd action =
 
 renderBox : (Float, Float) -> (Color -> Color) -> Color -> (Int, Int) -> Collage.Form
 renderBox (xOff, yOff) fun c (x, y) =
-  Collage.rect 30 30
+  Collage.circle 15
   |> Collage.filled (fun c)
   |> Collage.move ((toFloat x + xOff) * 30, (toFloat y + yOff) * -30)
 
