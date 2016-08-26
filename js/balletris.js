@@ -12444,6 +12444,92 @@ var _user$project$Grid$decode = function (cell) {
 					_elm_lang$core$Json_Decode$int))));
 };
 
+//import Maybe, Native.Scheduler //
+
+var _user$project$Native_LocalStorage = function() {
+
+  function get (key) {
+    return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
+      var value = localStorage.getItem(key);
+      return callback(_elm_lang$core$Native_Scheduler.succeed(
+        (value === null) ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(value)
+      ));
+    });
+  }
+
+  function set (key, value) {
+    return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
+      localStorage.setItem(key, value);
+      return callback(_elm_lang$core$Native_Scheduler.succeed(value));
+    });
+  }
+
+  function remove (key) {
+    return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
+      localStorage.removeItem(key);
+      return callback(_elm_lang$core$Native_Scheduler.succeed(key));
+    });
+  }
+
+  function storageFail () {
+    return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
+      return callback(_elm_lang$core$Native_Scheduler.fail({ctor: 'NoStorage'}));
+    });
+  }
+
+  if ('object' !== typeof localStorage) {
+    return {
+      get: storageFail,
+      set: storageFail,
+      remove: storageFail
+    };
+  }
+
+  return {
+    get: get,
+    set: F2(set),
+    remove: remove
+  };
+
+
+}();
+
+var _user$project$LocalStorage$remove = function (key) {
+	return _user$project$Native_LocalStorage.remove;
+};
+var _user$project$LocalStorage$set = _user$project$Native_LocalStorage.set;
+var _user$project$LocalStorage$get = _user$project$Native_LocalStorage.get;
+var _user$project$LocalStorage$UnexpectedPayload = function (a) {
+	return {ctor: 'UnexpectedPayload', _0: a};
+};
+var _user$project$LocalStorage$fromJson = F2(
+	function (decoder, str) {
+		var _p0 = A2(_elm_lang$core$Json_Decode$decodeString, decoder, str);
+		if (_p0.ctor === 'Ok') {
+			return _elm_lang$core$Task$succeed(
+				_elm_lang$core$Maybe$Just(_p0._0));
+		} else {
+			return _elm_lang$core$Task$fail(
+				_user$project$LocalStorage$UnexpectedPayload(_p0._0));
+		}
+	});
+var _user$project$LocalStorage$getJson = F2(
+	function (decoder, key) {
+		var decode = function (maybe) {
+			var _p1 = maybe;
+			if (_p1.ctor === 'Just') {
+				return A2(_user$project$LocalStorage$fromJson, decoder, _p1._0);
+			} else {
+				return _elm_lang$core$Task$succeed(_elm_lang$core$Maybe$Nothing);
+			}
+		};
+		return A2(
+			_elm_lang$core$Task$andThen,
+			_user$project$LocalStorage$get(key),
+			decode);
+	});
+var _user$project$LocalStorage$NoStorage = {ctor: 'NoStorage'};
+
 var _user$project$Model_ops = _user$project$Model_ops || {};
 _user$project$Model_ops['=>'] = F2(
 	function (v0, v1) {
@@ -13146,10 +13232,8 @@ var _user$project$View$renderBox = F4(
 				_0: (_elm_lang$core$Basics$toFloat(_p3._0) + _p2._0) * 30,
 				_1: (_elm_lang$core$Basics$toFloat(_p3._1) + _p2._1) * -30
 			},
-			A2(
-				_evancz$elm_graphics$Collage$filled,
-				fun(c),
-				A2(_evancz$elm_graphics$Collage$rect, 30, 30)));
+			_evancz$elm_graphics$Collage$toForm(
+				A3(_evancz$elm_graphics$Element$image, 30, 30, '../image/balletboetiek-logo.gif')));
 	});
 var _user$project$View$renderNext = function (grid) {
 	var _p4 = _user$project$Grid$size(grid);
