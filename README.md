@@ -18,13 +18,9 @@ Build on top of elm-flatris.
 
 ## Instructions to make
 
-1. Execute `elm make src/Main.elm --output js/balletris.js`
-2. Create an `index.html` with includes the following scripts
-
-```html
-<script src="js/balletris.js"></script>
-<script>Elm.Main.fullscreen();</script>
-```
+1. Execute `make`
+2. Execute `publish-game.sh`
+3. Visit the [game][game]
 
 ## Touch support (tested on iOS)
 
@@ -36,3 +32,4 @@ Add the following meta into `index.html`:
 
 [install]: http://elm-lang.org/install
 [local]: http://localhost:8000/src/Main.elm
+[game]: https://dvberkel.github.io/balletris/
