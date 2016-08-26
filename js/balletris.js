@@ -13108,9 +13108,30 @@ var _user$project$Update$animate = F2(
 					A2(_user$project$Update$moveTetrimino, elapsed, model))));
 	});
 var _user$project$Update$saveToStorage = function (model) {
-	return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+	return A2(
+		F2(
+			function (v0, v1) {
+				return {ctor: '_Tuple2', _0: v0, _1: v1};
+			}),
+		model,
+		A3(
+			_elm_lang$core$Task$perform,
+			_elm_lang$core$Basics$always(_user$project$Actions$Noop),
+			_elm_lang$core$Basics$always(_user$project$Actions$Noop),
+			A2(
+				_user$project$LocalStorage$set,
+				'elm-flatris',
+				A2(_user$project$Model$encode, 0, model))));
 };
-var _user$project$Update$getFromStorage = _elm_lang$core$Platform_Cmd$none;
+var _user$project$Update$getFromStorage = A3(
+	_elm_lang$core$Task$perform,
+	_elm_lang$core$Basics$always(
+		_user$project$Actions$Load('')),
+	function (v) {
+		return _user$project$Actions$Load(
+			A2(_elm_lang$core$Maybe$withDefault, '', v));
+	},
+	_user$project$LocalStorage$get('elm-flatris'));
 var _user$project$Update$update = F2(
 	function (action, model) {
 		var _p22 = action;
@@ -13233,7 +13254,7 @@ var _user$project$View$renderBox = F4(
 				_1: (_elm_lang$core$Basics$toFloat(_p3._1) + _p2._1) * -30
 			},
 			_evancz$elm_graphics$Collage$toForm(
-				A3(_evancz$elm_graphics$Element$image, 30, 30, '../image/balletboetiek-logo.gif')));
+				A3(_evancz$elm_graphics$Element$image, 30, 30, 'image/balletboetiek-logo.gif')));
 	});
 var _user$project$View$renderNext = function (grid) {
 	var _p4 = _user$project$Grid$size(grid);
