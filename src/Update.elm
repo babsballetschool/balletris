@@ -5,17 +5,23 @@ import Tetriminos
 import Time exposing (Time)
 import Grid
 import Random
+import LocalStorage
 import Task exposing (Task)
 
 
 getFromStorage : Cmd Action
 getFromStorage =
-  Cmd.none
+  LocalStorage.get "elm-flatris"
+    |> Task.perform
+       (always (Load ""))
+       (\v -> Load (Maybe.withDefault "" v))
 
 
 saveToStorage : Model -> (Model, Cmd Action)
 saveToStorage model =
-  (model, Cmd.none)
+  LocalStorage.set "elm-flatris" (Model.encode 0 model)
+    |> Task.perform (always Noop) (always Noop)
+    |> (,) model
 
 
 update : Action -> Model -> (Model, Cmd Action)

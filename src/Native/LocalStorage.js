@@ -1,6 +1,6 @@
 //import Maybe, Native.Scheduler //
 
-var _w0rm$elm_flatris$Native_LocalStorage = function() {
+var _user$project$Native_LocalStorage = function() {
 
   function get (key) {
     return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
