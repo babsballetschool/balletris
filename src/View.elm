@@ -1,7 +1,7 @@
 module View exposing (view)
 import Html exposing (div, Html, text, button)
-import Collage
-import Element
+import Collage exposing (toForm)
+import Element exposing (image)
 import Color exposing (Color)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick, onMouseDown, onMouseUp, on)
@@ -28,8 +28,7 @@ onTouchEnd action =
 
 renderBox : (Float, Float) -> (Color -> Color) -> Color -> (Int, Int) -> Collage.Form
 renderBox (xOff, yOff) fun c (x, y) =
-  Collage.circle 15
-  |> Collage.filled (fun c)
+  toForm (image 30 30 "../image/balletboetiek-logo.gif")
   |> Collage.move ((toFloat x + xOff) * 30, (toFloat y + yOff) * -30)
 
 
