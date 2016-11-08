@@ -13232,10 +13232,11 @@ var _user$project$Update$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'Tick':
+				var factor = 1.0 + (_elm_lang$core$Basics$toFloat(model.lines) / 150.0);
 				return _user$project$Update$saveToStorage(
 					A2(
 						_user$project$Update$animate,
-						A2(_elm_lang$core$Basics$min, _p22._0, 25),
+						factor * A2(_elm_lang$core$Basics$min, _p22._0, 25),
 						model));
 			default:
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
