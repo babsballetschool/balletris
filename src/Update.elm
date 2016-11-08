@@ -76,9 +76,12 @@ update action model =
       , Cmd.none
       )
     Tick time ->
-      model
-        |> animate (min time 25)
-        |> saveToStorage
+      let
+          factor = 1.0 + (toFloat model.lines)/150.0
+      in
+        model
+          |> animate (factor * (min time 25))
+          |> saveToStorage
     Noop ->
       (model, Cmd.none)
 
