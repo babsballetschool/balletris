@@ -4,7 +4,7 @@ import Model exposing (Model)
 import Update
 import View
 import Keyboard exposing (KeyCode)
-import Html.App as Html
+import Html
 import Actions exposing (Action(..))
 import AnimationFrame
 import Task exposing (Task)
@@ -41,10 +41,10 @@ key on { rotation, direction, acceleration } keycode =
             Noop
 
 
-main : Program Never
+main : Program Never Model Action
 main =
     Html.program
-        { init = ( Model.initial, Task.perform (always Init) (always Init) (Task.succeed 0) )
+        { init = ( Model.initial, Task.perform (always Init) (Task.succeed 0) )
         , update = Update.update
         , view = View.view
         , subscriptions = subscriptions

@@ -1,6 +1,6 @@
 module Grid exposing (Grid, decode, encode, fromList, empty, rotate, stamp, collide, mapToList, clearLines, initPosition, size)
 
-import Json.Decode as Decode exposing ((:=))
+import Json.Decode as Decode exposing (field)
 import Json.Encode as Encode
 
 
@@ -170,10 +170,10 @@ centerOfMass grid =
 decode : Decode.Decoder a -> Decode.Decoder (Grid a)
 decode cell =
     Decode.list
-        (Decode.object2
+        (Decode.map2
             Cell
-            ("val" := cell)
-            ("pos" := Decode.tuple2 (,) Decode.int Decode.int)
+            (field "val" cell)
+            (field "pos" (Decode.map2 (,) Decode.int Decode.int))
         )
 
 

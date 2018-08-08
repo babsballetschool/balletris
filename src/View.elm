@@ -259,7 +259,7 @@ game, the game can be played with a keyboard using the arrow keys,
 and on mobile devices using the buttons below.
 
 Balletris is open source on
-[**GitHub**](https://github.com/dvberkel/balletris).
+[**GitHub**](https://github.com/babsballetschool/balletris).
 """
         ]
 

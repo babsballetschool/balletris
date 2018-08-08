@@ -12,17 +12,18 @@ import Task exposing (Task)
 
 getFromStorage : Cmd Action
 getFromStorage =
-    LocalStorage.get "elm-flatris"
-        |> Task.perform
-            (always (Load ""))
-            (\v -> Load (Maybe.withDefault "" v))
+    Cmd.none
+    -- LocalStorage.get "elm-flatris"
+    --     |> Task.perform
+    --         (\v -> Load (Maybe.withDefault "" v))
 
 
 saveToStorage : Model -> ( Model, Cmd Action )
 saveToStorage model =
-    LocalStorage.set "elm-flatris" (Model.encode 0 model)
-        |> Task.perform (always Noop) (always Noop)
-        |> (,) model
+    (model, Cmd.none)
+    -- LocalStorage.set "elm-flatris" (Model.encode 0 model)
+    --     |> Task.perform
+    --     |> (,) model
 
 
 update : Action -> Model -> ( Model, Cmd Action )
