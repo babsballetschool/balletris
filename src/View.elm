@@ -30,7 +30,7 @@ onTouchEnd action =
 
 renderBox : ( Float, Float ) -> (Color -> Color) -> Color -> ( Int, Int ) -> Collage.Form
 renderBox ( xOff, yOff ) fun c ( x, y ) =
-    toForm (image 30 30 "image/balletboetiek-logo.gif")
+    toForm (image 30 30 "image/balletris/babsballetschool-logo.gif")
         |> Collage.move ( (toFloat x + xOff) * 30, (toFloat y + yOff) * -30 )
 
 
